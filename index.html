@@ -811,12 +811,27 @@ function renderHome(){
     h += `<button class="region" data-region="${r}"><b>${REGION_EMOJI[r]||"•"} ${r}</b><small>${md}/${list.length} dominados</small><div class="bar"><i style="width:${md/list.length*100}%"></i></div></button>`;
   });
   h += `</div>`;
+  h += `<div style="margin:22px 0 8px"><button class="btn warn" id="reset-progress" style="width:100%">🗑️ Limpar histórico de progresso</button></div>`;
   $("v-home").innerHTML = h;
 
   $("v-home").querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>{store.mode=b.dataset.mode;save();renderHome();});
   $("v-home").querySelectorAll("[data-len]").forEach(b=>b.onclick=()=>{store.len=+b.dataset.len;save();renderHome();});
   $("v-home").querySelectorAll("[data-region]").forEach(b=>b.onclick=()=>startQuiz(b.dataset.region==="all"?null:b.dataset.region));
+  $("reset-progress").onclick = resetProgress;
   updateChrome();
+}
+
+/* ---------- Histórico ---------- */
+function resetProgress(){
+  if(!confirm("Tem certeza que deseja apagar todo o histórico? Acertos, erros, músculos dominados, lista de revisão e recorde serão apagados. Essa ação não pode ser desfeita.")) return;
+
+  store.stats = {};
+  store.missed = [];
+  store.best = 0;
+
+  save();
+  updateChrome();
+  renderHome();
 }
 
 /* ---------- Quiz ---------- */

@@ -195,745 +195,546 @@ details.m[open] summary::after{transform:rotate(90deg)}
 
 <script>
     const MUSCLES_DB = [
-      // --- OMBRO (6) ---
-      {
-        id: 1,
-        region: "Ombro",
-        name: "Subescapular",
-        aliases: ["subescapular", "musculo subescapular"],
-        origem: "Fossa subescapular",
-        insercao: "Tubérculo menor do úmero",
-        acao: "Rotação medial e adução do ombro",
-        explanation: "Fica <strong>abaixo</strong> (sub) da <strong>escápula</strong>, na face costal anterior. É o único músculo do manguito rotador que se insere no tubérculo menor do úmero."
-      },
-      {
-        id: 2,
-        region: "Ombro",
-        name: "Supra-espinhal",
-        aliases: ["supra-espinhal", "supraespinhal", "supra espinal", "supra-espinal", "supraespinal"],
-        origem: "Fossa supra-espinhal da escápula",
-        insercao: "Tubérculo maior do úmero",
-        acao: "Abdução do ombro",
-        explanation: "Fica <strong>acima</strong> (supra) da <strong>espinha</strong> da escápula e inicia o movimento de abdução do ombro."
-      },
-      {
-        id: 3,
-        region: "Ombro",
-        name: "Infra-espinhal",
-        aliases: ["infra-espinhal", "infraespinhal", "infra espinal", "infra-espinal", "infraespinal"],
-        origem: "Superfície posterior da escápula",
-        insercao: "Tubérculo maior do úmero",
-        acao: "Rotação lateral e adução do ombro",
-        explanation: "Fica <strong>abaixo</strong> (infra) da <strong>espinha</strong> da escápula na parte posterior, atuando na rotação lateral do ombro."
-      },
-      {
-        id: 4,
-        region: "Ombro",
-        name: "Redondo menor",
-        aliases: ["redondo menor"],
-        origem: "Escápula posterior, borda lateral",
-        insercao: "Tubérculo maior do úmero",
-        acao: "Rotação lateral e adução do ombro",
-        explanation: "É o músculo <strong>redondo</strong> mais <strong>curto/superior</strong> do manguito rotador, inserindo-se no tubérculo maior."
-      },
-      {
-        id: 5,
-        region: "Ombro",
-        name: "Redondo maior",
-        aliases: ["redondo maior"],
-        origem: "Face posterior do ângulo inferior da escápula",
-        insercao: "Lábio medial do sulco intertubercular do úmero",
-        acao: "Rotação medial e adução do ombro",
-        explanation: "É o músculo <strong>redondo</strong> mais <strong>baixo/longo</strong> que vai do ângulo inferior da escápula para a parte anterior do úmero."
-      },
-      {
-        id: 6,
-        region: "Ombro",
-        name: "Deltoide",
-        aliases: ["deltoide", "deltóide"],
-        origem: "Terço final da clavícula, acrômio e espinha da escápula",
-        insercao: "Tuberosidade deltoidea do úmero",
-        acao: "Abdução, extensão e flexão",
-        explanation: "Tem formato de <strong>delta</strong> (triângulo invertido) cobrindo o contorno do ombro."
-      },
-
-      // --- BRAÇO (4) ---
-      {
-        id: 7,
-        region: "Braço",
-        name: "Bíceps braquial",
-        aliases: ["biceps braquial", "bíceps braquial", "biceps"],
-        origem: "Tubérculo supraglenoidal e processo coracoide",
-        insercao: "Tuberosidade do rádio",
-        acao: "Flexão e supinação do antebraço",
-        explanation: "<strong>Bi</strong> = possui <strong>duas</strong> cabeças de origem (curta no processo coracoide e longa no tubérculo supraglenoidal)."
-      },
-      {
-        id: 8,
-        region: "Braço",
-        name: "Braquial",
-        aliases: ["braquial"],
-        origem: "Face anterior da metade distal do úmero",
-        insercao: "Processo coronoide da ulna",
-        acao: "Flexão do antebraço",
-        explanation: "Músculo profundo puramente do <strong>braço</strong> que se insere na ulna, sendo o flexor puro do cotovelo."
-      },
-      {
-        id: 9,
-        region: "Braço",
-        name: "Coracobraquial",
-        aliases: ["coracobraquial", "coraco-braquial", "coraco braquial"],
-        origem: "Processo coracoide da escápula",
-        insercao: "Terço médio do úmero",
-        acao: "Flexão e adução do ombro",
-        explanation: "O próprio nome entrega a anatomia: liga o processo <strong>coracoide</strong> ao <strong>braço</strong> (úmero)."
-      },
-      {
-        id: 10,
-        region: "Braço",
-        name: "Tríceps braquial",
-        aliases: ["triceps braquial", "tríceps braquial", "triceps"],
-        origem: "Tubérculo infraglenoidal, face posterior do úmero e sulco radial",
-        insercao: "Olécrano",
-        acao: "Extensão do antebraço",
-        explanation: "<strong>Tri</strong> = possui <strong>três</strong> cabeças na parte posterior do braço que convergem para o olécrano da ulna."
-      },
-
-      // --- ANTEBRAÇO (20) ---
-      {
-        id: 11,
-        region: "Antebraço",
-        name: "Braquiorradial",
-        aliases: ["braquiorradial", "braquioradial", "braquio-radial"],
-        origem: "Crista supraepicondilar lateral do úmero",
-        insercao: "Processo estiloide do rádio",
-        acao: "Pronação, supinação e flexão do antebraço",
-        explanation: "Liga o <strong>braço</strong> (úmero) até a ponta distal do osso <strong>rádio</strong>."
-      },
-      {
-        id: 12,
-        region: "Antebraço",
-        name: "Extensor radial longo do carpo",
-        aliases: ["extensor radial longo do carpo"],
-        origem: "Crista supraepicondilar lateral do úmero",
-        insercao: "Base do 2º metacarpal",
-        acao: "Extensão do punho e abdução da mão (desvio radial)",
-        explanation: "É <strong>longo</strong> e vai para o <strong>carpo/metacarpo</strong> (2º metacarpal) pelo lado do rádio."
-      },
-      {
-        id: 13,
-        region: "Antebraço",
-        name: "Extensor radial curto do carpo",
-        aliases: ["extensor radial curto do carpo"],
-        origem: "Epicôndilo lateral do úmero",
-        insercao: "Base do 3º metacarpal",
-        acao: "Extensão do punho",
-        explanation: "É o <strong>curto</strong> que acompanha o extensor radial longo, inserindo-se na base do 3º metacarpal."
-      },
-      {
-        id: 14,
-        region: "Antebraço",
-        name: "Extensor ulnar do carpo",
-        aliases: ["extensor ulnar do carpo"],
-        origem: "Epicôndilo lateral do úmero",
-        insercao: "Base do 5º metacarpal",
-        acao: "Extensão e adução do punho (desvio ulnar)",
-        explanation: "Fica do lado da <strong>ulna</strong> (medial) e se insere na base do 5º metacarpal (lado do dedo mínimo)."
-      },
-      {
-        id: 15,
-        region: "Antebraço",
-        name: "Extensor dos dedos",
-        aliases: ["extensor dos dedos", "extensor comum dos dedos"],
-        origem: "Epicôndilo lateral do úmero",
-        insercao: "Falanges média e distal do 2º ao 5º dedos",
-        acao: "Extensão do punho",
-        explanation: "Seus quatro tendões percorrem o dorso da mão para abrir (<strong>estender</strong>) os <strong>dedos</strong> do 2º ao 5º."
-      },
-      {
-        id: 16,
-        region: "Antebraço",
-        name: "Extensor do dedo mínimo",
-        aliases: ["extensor do dedo minimo", "extensor do dedo mínimo"],
-        origem: "Epicôndilo lateral do úmero",
-        insercao: "Tendão extensor do 5º dedo",
-        acao: "Extensão do 5º dedo",
-        explanation: "Músculo exclusivo para estender o <strong>dedo mínimo</strong> (5º dedo / mindinho)."
-      },
-      {
-        id: 17,
-        region: "Antebraço",
-        name: "Extensor do dedo indicador",
-        aliases: ["extensor do dedo indicador", "extensor do indicador"],
-        origem: "Face posterior da ulna",
-        insercao: "Tendão extensor do 2º dedo",
-        acao: "Extensão do 2º dedo",
-        explanation: "O dedo <strong>indicador</strong> (2º dedo) possui este extensor próprio vindo da face posterior da ulna."
-      },
-      {
-        id: 18,
-        region: "Antebraço",
-        name: "Extensor curto do polegar",
-        aliases: ["extensor curto do polegar"],
-        origem: "Face posterior do rádio",
-        insercao: "Face dorsal da falange proximal do polegar",
-        acao: "Extensão do polegar",
-        explanation: "Tendão <strong>curto</strong> que para na falange proximal do <strong>polegar</strong>."
-      },
-      {
-        id: 19,
-        region: "Antebraço",
-        name: "Extensor longo do polegar",
-        aliases: ["extensor longo do polegar"],
-        origem: "Face posterior do 1/3 médio da ulna",
-        insercao: "Falange distal do polegar",
-        acao: "Extensão do polegar",
-        explanation: "Tendão <strong>longo</strong> que atravessa até a falange distal (ponta) do <strong>polegar</strong>."
-      },
-      {
-        id: 20,
-        region: "Antebraço",
-        name: "Pronador redondo",
-        aliases: ["pronador redondo"],
-        origem: "Epicôndilo medial do úmero e processo coronoide da ulna",
-        insercao: "Metade da face lateral do rádio",
-        acao: "Pronação e flexão do antebraço",
-        explanation: "Cruza obliquamente o antebraço superior para fazer a <strong>pronação</strong> (virar a palma para baixo)."
-      },
-      {
-        id: 21,
-        region: "Antebraço",
-        name: "Pronador quadrado",
-        aliases: ["pronador quadrado"],
-        origem: "1/4 da face anterior da ulna",
-        insercao: "1/4 da face anterior do rádio",
-        acao: "Pronação do antebraço",
-        explanation: "Tem formato retangular/<strong>quadrado</strong> ligando a ulna ao rádio bem perto do punho."
-      },
-      {
-        id: 22,
-        region: "Antebraço",
-        name: "Palmar longo",
-        aliases: ["palmar longo", "longo palmar"],
-        origem: "Epicôndilo medial do úmero",
-        insercao: "Aponeurose palmar",
-        acao: "Flexão de punho",
-        explanation: "Seu tendão superficial vai direto para a <strong>aponeurose palmar</strong> no centro da <strong>palma</strong> da mão."
-      },
-      {
-        id: 23,
-        region: "Antebraço",
-        name: "Flexor radial do carpo",
-        aliases: ["flexor radial do carpo"],
-        origem: "Epicôndilo medial do úmero",
-        insercao: "Base do 2º metacarpal",
-        acao: "Flexão e abdução de punho (desvio radial)",
-        explanation: "Flexiona o punho caminhando pelo lado do <strong>rádio</strong> até a base do 2º metacarpal."
-      },
-      {
-        id: 24,
-        region: "Antebraço",
-        name: "Flexor ulnar do carpo",
-        aliases: ["flexor ulnar do carpo"],
-        origem: "Epicôndilo medial e olécrano",
-        insercao: "Pisiforme, hamato e base do 5º metacarpal",
-        acao: "Flexão e adução do punho (desvio ulnar)",
-        explanation: "Flexiona o punho caminhando pelo lado da <strong>ulna</strong> até o pisiforme, hamato e 5º metacarpal."
-      },
-      {
-        id: 25,
-        region: "Antebraço",
-        name: "Flexor superficial dos dedos",
-        aliases: ["flexor superficial dos dedos"],
-        origem: "Epicôndilo medial e processo coronoide da ulna",
-        insercao: "Base da falange média do 2º ao 5º dedos",
-        acao: "Flexão de punho e dedos",
-        explanation: "Fica na camada <strong>superficial</strong> (por cima do profundo) e para na <strong>falange média</strong> dos dedos."
-      },
-      {
-        id: 26,
-        region: "Antebraço",
-        name: "Flexor profundo dos dedos",
-        aliases: ["flexor profundo dos dedos"],
-        origem: "Face anterior da ulna e membrana interóssea",
-        insercao: "Base da falange distal do 2º ao 5º dedos",
-        acao: "Flexão de punho e dedos",
-        explanation: "Fica na camada mais <strong>funda</strong> e seus tendões perfuram o superficial para chegar à <strong>falange distal</strong>."
-      },
-      {
-        id: 27,
-        region: "Antebraço",
-        name: "Flexor longo do polegar",
-        aliases: ["flexor longo do polegar"],
-        origem: "Face anterior do rádio e membrana interóssea",
-        insercao: "Falange distal do polegar",
-        acao: "Flexão do polegar",
-        explanation: "Músculo <strong>longo</strong> do antebraço que vai até a falange distal para dobrar (<strong>flexionar</strong>) o <strong>polegar</strong>."
-      },
-      {
-        id: 28,
-        region: "Antebraço",
-        name: "Abdutor longo do polegar",
-        aliases: ["abdutor longo do polegar"],
-        origem: "Face posterior do rádio e ulna e membrana interóssea",
-        insercao: "Base do 1º metacarpal",
-        acao: "Abdução do polegar",
-        explanation: "Abre (<strong>abduz</strong>) o <strong>polegar</strong> inserindo-se diretamente na base do 1º metacarpal."
-      },
-      {
-        id: 29,
-        region: "Antebraço",
-        name: "Ancôneo",
-        aliases: ["anconeo", "ancôneo"],
-        origem: "Epicôndilo lateral do úmero",
-        insercao: "Olécrano",
-        acao: "Extensão do antebraço",
-        explanation: "Pequeno músculo triangular próximo ao <strong>cotovelo/olécrano</strong> que auxilia o tríceps na extensão."
-      },
-      {
-        id: 30,
-        region: "Antebraço",
-        name: "Supinador",
-        aliases: ["supinador"],
-        origem: "Epicôndilo lateral do úmero",
-        insercao: "Face lateral superior do rádio",
-        acao: "Supinação do antebraço",
-        explanation: "Envolve o terço superior do rádio para realizar a <strong>supinação</strong> (girar a palma da mão para cima)."
-      },
-
-      // --- PESCOÇO (5) ---
-      {
-        id: 31,
-        region: "Pescoço",
-        name: "Platisma",
-        aliases: ["platisma"],
-        origem: "Base da mandíbula",
-        insercao: "Pele por baixo da clavícula e fáscia peitoral",
-        acao: "Traciona o lábio inferior e o ângulo bucal",
-        explanation: "Músculo largo e muito fino que lembra uma <strong>lâmina ou placa</strong> superficial cobrindo o pescoço."
-      },
-      {
-        id: 32,
-        region: "Pescoço",
-        name: "Esternocleidomastoideo",
-        aliases: ["esternocleidomastoideo", "esternocleidomastoide", "esternocleidomastóideo"],
-        origem: "Clavícula e manúbrio",
-        insercao: "Processo mastoide",
-        acao: "Flexão da cabeça",
-        explanation: "O nome revela suas inserções: <strong>Esterno</strong> + <strong>Cleido</strong> (clavícula) + processo <strong>Mastoide</strong> do crânio."
-      },
-      {
-        id: 33,
-        region: "Pescoço",
-        name: "Escaleno anterior",
-        aliases: ["escaleno anterior"],
-        origem: "Vértebras",
-        insercao: "Costelas",
-        acao: "Inclinação do pescoço e auxilia na inspiração",
-        explanation: "Os escalenos lembram uma <strong>escala</strong> (degraus) na lateral do pescoço; este é o feixe mais à frente (<strong>anterior</strong>)."
-      },
-      {
-        id: 34,
-        region: "Pescoço",
-        name: "Escaleno médio",
-        aliases: ["escaleno medio", "escaleno médio"],
-        origem: "Vértebras",
-        insercao: "Costelas",
-        acao: "Inclinação do pescoço e auxilia na inspiração",
-        explanation: "É o feixe intermediário (do <strong>meio</strong>) dos três músculos em forma de <strong>escala</strong> no pescoço."
-      },
-      {
-        id: 35,
-        region: "Pescoço",
-        name: "Escaleno posterior",
-        aliases: ["escaleno posterior"],
-        origem: "Vértebras",
-        insercao: "Costelas",
-        acao: "Inclinação do pescoço e auxilia na inspiração",
-        explanation: "É o feixe situado mais atrás (<strong>posterior</strong>) do grupo dos <strong>escalenos</strong>."
-      },
-
-      // --- DORSO (4 PRIMEIROS) ---
-      {
-        id: 36,
-        region: "Dorso",
-        name: "Trapézio",
-        aliases: ["trapezio", "trapézio"],
-        origem: "Linha nucal superior, ligamento nucal e processos espinhosos da C7 à T12",
-        insercao: "Borda posterior da clavícula, acrômio e espinha da escápula",
-        acao: "Elevação e depressão do ombro e adução e rotação superior das escápulas",
-        explanation: "Primeiro músculo superficial do dorso; tem o formato geométrico de um <strong>trapézio</strong>."
-      },
-      {
-        id: 37,
-        region: "Dorso",
-        name: "Latíssimo do dorso",
-        aliases: ["latissimo do dorso", "latíssimo do dorso", "grande dorsal"],
-        origem: "Processos espinhosos das vértebras torácicas e lombares",
-        insercao: "Face proximal e distal do úmero",
-        acao: "Adução, extensão e rotação medial do braço e depressão do ombro",
-        explanation: "É o músculo mais <strong>largo (latíssimo)</strong> das costas, formando a famosa 'asa' dorsal."
-      },
-      {
-        id: 38,
-        region: "Dorso",
-        name: "Romboides",
-        aliases: ["romboides", "romboide", "rombóides", "rombóide", "romboide maior", "romboide menor"],
-        origem: "Processos espinhosos da C7 à T5",
-        insercao: "Borda medial da escápula",
-        acao: "Adução e rotação inferior das escápulas e elevação do ombro",
-        explanation: "Têm formato geométrico que lembra um losango ou <strong>rombo</strong> entre a coluna e a escápula."
-      },
-      {
-        id: 39,
-        region: "Dorso",
-        name: "Levantador da escápula",
-        aliases: ["levantador da escapula", "levantador da escápula", "elevador da escapula", "elevador da escápula"],
-        origem: "Processo transverso do atlas até à C4",
-        insercao: "Ângulo superior da escápula",
-        acao: "Elevação e adução da escápula",
-        explanation: "O próprio nome descreve sua função direta: puxa para cima (<strong>levanta</strong>) o ângulo superior da <strong>escápula</strong>."
-      },
-
-      // --- TÓRAX (4 PRIMEIROS) ---
-      {
-        id: 40,
-        region: "Tórax",
-        name: "Peitoral maior",
-        aliases: ["peitoral maior"],
-        origem: "Borda anterior da clavícula e face anterior do esterno até a 7ª costela",
-        insercao: "Crista do tubérculo maior do úmero",
-        acao: "Adução, rotação medial e flexão do ombro",
-        explanation: "É o <strong>maior</strong> e mais superficial músculo da região anterior do <strong>peito</strong>."
-      },
-      {
-        id: 41,
-        region: "Tórax",
-        name: "Peitoral menor",
-        aliases: ["peitoral menor"],
-        origem: "Face externa da 3ª, 4ª e 5ª costelas",
-        insercao: "Processo coracoide da escápula",
-        acao: "Depressão do ombro, rotação inferior da escápula e elevação das costelas",
-        explanation: "Fica situado profundamente logo abaixo do peitoral maior, sendo o <strong>menor</strong> dos dois."
-      },
-      {
-        id: 42,
-        region: "Tórax",
-        name: "Serrátil anterior",
-        aliases: ["serratil anterior", "serrátil anterior"],
-        origem: "Superfícies externas das 8-9 primeiras costelas",
-        insercao: "Face costal da margem medial da escápula",
-        acao: "Ação inspiratória, rotação, abdução e depressão da escápula",
-        explanation: "Possui digitações nas costelas com bordas recortadas que lembram os dentes de uma <strong>serra</strong>."
-      },
-      {
-        id: 43,
-        region: "Tórax",
-        name: "Subclávio",
-        aliases: ["subclavio", "subclávio"],
-        origem: "1ª costela e cartilagem costal",
-        insercao: "Face inferior da clavícula",
-        acao: "Depressão da clavícula e do ombro",
-        explanation: "Pequeno músculo situado logo <strong>abaixo</strong> (sub) da <strong>clavícula</strong>."
-      },
-
-      // --- ABDOME (7) ---
-      {
-        id: 44,
-        region: "Abdome",
-        name: "Reto do abdome",
-        aliases: ["reto do abdome", "reto do abdomen", "reto do abdômen", "reto abdominal"],
-        origem: "Processo xifoide, 5ª a 6ª cartilagens costais",
-        insercao: "Púbis e sínfise púbica",
-        acao: "Flexão do tronco",
-        explanation: "Fibras orientadas em linha <strong>reta</strong> vertical na parte anterior do <strong>abdome</strong>."
-      },
-      {
-        id: 45,
-        region: "Abdome",
-        name: "Oblíquo externo do abdome",
-        aliases: ["obliquo externo do abdome", "oblíquo externo do abdome", "obliquo externo", "oblíquo externo"],
-        origem: "Face externa das últimas 7 costelas",
-        insercao: "1/2 anterior da crista ilíaca, EIAS, tubérculo e púbis e linha alba",
-        acao: "Flexão e rotação do tronco",
-        explanation: "Fibras dispostas na diagonal (<strong>oblíquas</strong>) na camada mais superficial (<strong>externa</strong>) do abdome."
-      },
-      {
-        id: 46,
-        region: "Abdome",
-        name: "Oblíquo interno do abdome",
-        aliases: ["obliquo interno do abdome", "oblíquo interno do abdome", "obliquo interno", "oblíquo interno"],
-        origem: "Aponeurose toracolombar",
-        insercao: "Crista ilíaca, EIAS e ligamento inguinal",
-        acao: "Flexão e rotação do tronco",
-        explanation: "Fibras <strong>oblíquas</strong> situadas logo abaixo do oblíquo externo, em camada mais <strong>interna</strong>."
-      },
-      {
-        id: 47,
-        region: "Abdome",
-        name: "Transverso do abdome",
-        aliases: ["transverso do abdome", "transverso do abdomen", "transverso do abdômen", "transverso abdominal"],
-        origem: "Cartilagens costais, aponeurose toracolombar, crista ilíaca e ligamento inguinal",
-        insercao: "Púbis e linha alba",
-        acao: "Aumento da pressão intra-abdominal e estabilização da coluna lombar",
-        explanation: "Músculo mais profundo do abdome, com fibras horizontais (<strong>transversais</strong>) que funcionam como uma cinta."
-      },
-      {
-        id: 48,
-        region: "Abdome",
-        name: "Quadrado lombar",
-        aliases: ["quadrado lombar"],
-        origem: "Crista ilíaca",
-        insercao: "12ª costela e processo transverso de 1ª a 4ª vértebra lombar",
-        acao: "Inclinação homolateral do tronco e depressão da 12ª costela",
-        explanation: "Tem formato retangular/<strong>quadrado</strong> na parede posterior da região <strong>lombar</strong>."
-      },
-      {
-        id: 71,
-        region: "Abdome",
-        name: "Ilíaco",
-        aliases: ["iliaco", "ilíaco"],
-        origem: "2/3 superiores da fossa ilíaca, crista ilíaca e sacro",
-        insercao: "Trocanter menor do fêmur",
-        acao: "Flexão de quadril, anteroversão da pelve e coluna lombar",
-        explanation: "Preenche a fossa <strong>ilíaca</strong> do quadril e se une ao psoas maior para formar o iliopsoas."
-      },
-      {
-        id: 72,
-        region: "Abdome",
-        name: "Psoas maior",
-        aliases: ["psoas maior", "psoas"],
-        origem: "Processo transverso das vértebras lombares e discos intervertebrais",
-        insercao: "Trocanter menor do fêmur",
-        acao: "Flexão da coxa e da coluna lombar e inclinação homolateral",
-        explanation: "Desce da coluna lombar até o trocanter menor do fêmur, juntando-se ao ilíaco para formar o iliopsoas."
-      },
-
-      // --- QUADRIL (9) ---
-      {
-        id: 49,
-        region: "Quadril",
-        name: "Glúteo máximo",
-        aliases: ["gluteo maximo", "glúteo máximo"],
-        origem: "Ílio, sacro e cóccix",
-        insercao: "Trato iliotibial e tuberosidade glútea do fêmur",
-        acao: "Extensão e rotação lateral do quadril",
-        explanation: "É o <strong>maior</strong> (máximo) e mais superficial dos músculos da região glútea."
-      },
-      {
-        id: 50,
-        region: "Quadril",
-        name: "Glúteo médio",
-        aliases: ["gluteo medio", "glúteo médio"],
-        origem: "Face lateral do osso ilíaco",
-        insercao: "Trocanter maior do fêmur",
-        acao: "Abdução e rotação medial do quadril",
-        explanation: "É o glúteo de tamanho intermediário (do <strong>meio</strong>), principal abdutor do quadril."
-      },
-      {
-        id: 51,
-        region: "Quadril",
-        name: "Glúteo mínimo",
-        aliases: ["gluteo minimo", "glúteo mínimo"],
-        origem: "Face lateral do osso ilíaco",
-        insercao: "Trocanter maior do fêmur",
-        acao: "Abdução e rotação medial de quadril",
-        explanation: "É o <strong>menor</strong> (mínimo) e mais profundo dos três músculos glúteos."
-      },
-      {
-        id: 52,
-        region: "Quadril",
-        name: "Piriforme",
-        aliases: ["piriforme"],
-        origem: "Face pélvica do sacro",
-        insercao: "Trocanter maior do fêmur",
-        acao: "Abdução e rotação lateral do quadril",
-        explanation: "Seu nome significa 'em formato de <strong>pera</strong>'; sai da face anterior do sacro rumo ao trocanter maior."
-      },
-      {
-        id: 53,
-        region: "Quadril",
-        name: "Gêmeo superior",
-        aliases: ["gemeo superior", "gêmeo superior", "gemeos"],
-        origem: "Espinha isquiática",
-        insercao: "Trocanter maior do fêmur",
-        acao: "Rotação lateral do quadril",
-        explanation: "Faz par (<strong>gêmeo</strong>) com o inferior, posicionando-se <strong>acima</strong> (superior) do tendão do obturatório interno."
-      },
-      {
-        id: 54,
-        region: "Quadril",
-        name: "Gêmeo inferior",
-        aliases: ["gemeo inferior", "gêmeo inferior", "gemeos"],
-        origem: "Tuberosidade isquiática",
-        insercao: "Trocanter maior do fêmur",
-        acao: "Rotação lateral do quadril",
-        explanation: "Faz par (<strong>gêmeo</strong>) com o superior, posicionando-se <strong>abaixo</strong> (inferior) do tendão do obturatório interno."
-      },
-      {
-        id: 55,
-        region: "Quadril",
-        name: "Obturatório interno",
-        aliases: ["obturatorio interno", "obturatório interno", "obturador interno"],
-        origem: "Membrana obturatória e ísquio",
-        insercao: "Trocanter maior do fêmur",
-        acao: "Rotação lateral do quadril",
-        explanation: "Cobre a face <strong>interna</strong> da membrana <strong>obturatória</strong> e sai da pelve para rodar lateralmente o quadril."
-      },
-      {
-        id: 56,
-        region: "Quadril",
-        name: "Obturatório externo",
-        aliases: ["obturatorio externo", "obturatório externo", "obturador externo"],
-        origem: "Margem do forame obturado",
-        insercao: "Fossa trocantérica do fêmur",
-        acao: "Rotação lateral do quadril",
-        explanation: "Cobre a face <strong>externa</strong> do forame <strong>obturado</strong> e insere-se na fossa trocantérica do fêmur."
-      },
-      {
-        id: 57,
-        region: "Quadril",
-        name: "Quadrado femoral",
-        aliases: ["quadrado femoral"],
-        origem: "Tuberosidade isquiática",
-        insercao: "Crista intertrocantérica",
-        acao: "Rotação lateral do quadril",
-        explanation: "Músculo curto e espesso de formato <strong>quadrado</strong> localizado na parte posterior do <strong>fêmur</strong>."
-      },
-
-      // --- COXA (9 - SEM ADUTORES) ---
-      {
-        id: 58,
-        region: "Coxa",
-        name: "Tensor da fáscia lata",
-        aliases: ["tensor da fascia lata", "tensor da fáscia lata"],
-        origem: "Crista ilíaca e espinha ilíaca anterossuperior",
-        insercao: "Trato iliotibial",
-        acao: "Flexão, abdução e rotação medial do quadril e rotação lateral do joelho",
-        explanation: "Atua tracionando (<strong>tensionando</strong>) a <strong>fáscia lata</strong> através do trato iliotibial na lateral da coxa."
-      },
-      {
-        id: 59,
-        region: "Coxa",
-        name: "Sartório",
-        aliases: ["sartorio", "sartório"],
-        origem: "Espinha ilíaca anterossuperior",
-        insercao: "Tuberosidade da tíbia (pata de ganso)",
-        acao: "Abdução, flexão e rotação lateral da coxa e flexão e rotação medial do joelho",
-        explanation: "Conhecido como o músculo do <strong>alfaiate</strong> (posição de cruzar as pernas); é o músculo mais longo do corpo."
-      },
-      {
-        id: 60,
-        region: "Coxa",
-        name: "Reto femoral",
-        aliases: ["reto femoral", "reto da coxa"],
-        origem: "Espinha ilíaca anteroinferior",
-        insercao: "Patela e tuberosidade da tíbia",
-        acao: "Flexão do quadril e extensão do joelho",
-        explanation: "Desce em linha <strong>reta</strong> bem no centro anterior da coxa (<strong>fêmur</strong>), sendo a única cabeça biarticular do quadríceps."
-      },
-      {
-        id: 61,
-        region: "Coxa",
-        name: "Vasto medial",
-        aliases: ["vasto medial"],
-        origem: "Linha áspera e linha intertrocantérica",
-        insercao: "Patela e tuberosidade da tíbia",
-        acao: "Extensão do joelho",
-        explanation: "Massa muscular grande (<strong>vasta</strong>) localizada na parte interna (<strong>medial</strong>) do quadríceps."
-      },
-      {
-        id: 62,
-        region: "Coxa",
-        name: "Vasto lateral",
-        aliases: ["vasto lateral"],
-        origem: "Trocanter maior, linha áspera e linha intertrocantérica",
-        insercao: "Patela e tuberosidade da tíbia",
-        acao: "Extensão do joelho",
-        explanation: "Maior porção (<strong>vasta</strong>) do quadríceps, localizada na face externa (<strong>lateral</strong>) da coxa."
-      },
-      {
-        id: 63,
-        region: "Coxa",
-        name: "Vasto intermédio",
-        aliases: ["vasto intermedio", "vasto intermédio"],
-        origem: "Face anterior e lateral do fêmur",
-        insercao: "Patela e tuberosidade da tíbia",
-        acao: "Extensão do joelho",
-        explanation: "Fica situado no <strong>meio</strong> (<strong>intermédio</strong>) entre o vasto medial e o lateral, logo abaixo do reto femoral."
-      },
-      {
-        id: 64,
-        region: "Coxa",
-        name: "Bíceps femoral",
-        aliases: ["biceps femoral", "bíceps femoral"],
-        origem: "Tuberosidade isquiática",
-        insercao: "Côndilo lateral da tíbia e cabeça da fíbula",
-        acao: "Extensão do quadril, flexão e rotação lateral do joelho",
-        explanation: "Localizado na parte posterior/lateral da coxa (<strong>fêmur</strong>) e possui <strong>duas</strong> cabeças (<strong>bíceps</strong>)."
-      },
-      {
-        id: 65,
-        region: "Coxa",
-        name: "Semitendinoso",
-        aliases: ["semitendinoso", "semitendineo", "semitendíneo"],
-        origem: "Tuberosidade isquiática",
-        insercao: "Superfície medial da tuberosidade da tíbia (pata de ganso)",
-        acao: "Extensão do quadril, flexão e rotação medial do joelho",
-        explanation: "Metade do seu comprimento na parte posterior da coxa é formada por um longo cordão (<strong>semitendão</strong>)."
-      },
-      {
-        id: 66,
-        region: "Coxa",
-        name: "Semimembranoso",
-        aliases: ["semimembranoso", "semimembranaceo", "semimembranáceo"],
-        origem: "Tuberosidade isquiática",
-        insercao: "Côndilo medial da tíbia",
-        acao: "Extensão do quadril, flexão e rotação medial do joelho",
-        explanation: "Possui uma porção superior achatada e larga que lembra uma <strong>membrana</strong> na parte posterior da coxa."
-      },
-
-      // --- PERNA (2 PRIMEIROS E 2 ÚLTIMOS = 4) ---
-      {
-        id: 67,
-        region: "Perna",
-        name: "Tibial anterior",
-        aliases: ["tibial anterior"],
-        origem: "Côndilo lateral e metade proximal da face lateral da tíbia",
-        insercao: "Cuneiforme medial e base do 1º metatarsal",
-        acao: "Dorsiflexão e inversão do pé",
-        explanation: "Primeiro músculo da perna; fica colado à <strong>tíbia</strong> na parte da <strong>frente</strong> (<strong>anterior</strong>)."
-      },
-      {
-        id: 68,
-        region: "Perna",
-        name: "Extensor longo dos dedos",
-        aliases: ["extensor longo dos dedos", "extensor longo dos dedos do pe", "extensor longo dos dedos do pé"],
-        origem: "Côndilo lateral da tíbia, fíbula e membrana interóssea",
-        insercao: "Falanges média e distal do 2º ao 5º dedos",
-        acao: "Dorsiflexão, eversão do pé e extensão dos dedos",
-        explanation: "Segundo músculo anterior da perna; seus tendões <strong>longos</strong> levantam (<strong>estendem</strong>) os <strong>dedos</strong> do pé."
-      },
-      {
-        id: 69,
-        region: "Perna",
-        name: "Flexor longo do hálux",
-        aliases: ["flexor longo do halux", "flexor longo do hálux"],
-        origem: "Face posterior da fíbula e membrana interóssea",
-        insercao: "Falange distal do hálux",
-        acao: "Flexão do hálux, plantiflexão e inversão do tornozelo",
-        explanation: "Penúltimo músculo da perna; <strong>hálux</strong> é o termo anatômico para o <strong>dedão do pé</strong>."
-      },
-      {
-        id: 70,
-        region: "Perna",
-        name: "Tibial posterior",
-        aliases: ["tibial posterior"],
-        origem: "Face posterior da tíbia e fíbula",
-        insercao: "3 cuneiformes, cuboide, navicular e base do 2º ao 4º metatarsais",
-        acao: "Plantiflexão e inversão do pé",
-        explanation: "Último músculo da perna na apostila; fica profundo na parte de <strong>trás</strong> (<strong>posterior</strong>) da <strong>tíbia</strong>."
-      }
+      {
+              id: 1,
+              region: "Ombro",
+              name: "Subescapular",
+              aliases: ["subescapular", "musculo subescapular"],
+              origem: "Fossa subescapular",
+              insercao: "Tubérculo menor do úmero",
+              acao: "Rotação medial e adução do ombro",
+              explanation: "Fica <strong>abaixo</strong> (sub) da <strong>escápula</strong>, na face costal anterior. É o único músculo do manguito rotador que se insere no tubérculo menor do úmero."
+            },
+      {
+              id: 2,
+              region: "Ombro",
+              name: "Supra-espinhal",
+              aliases: ["supra-espinhal", "supraespinhal", "supra espinal", "supra-espinal", "supraespinal"],
+              origem: "Fossa supra-espinhal da escápula",
+              insercao: "Tubérculo maior do úmero",
+              acao: "Abdução do ombro",
+              explanation: "Fica <strong>acima</strong> (supra) da <strong>espinha</strong> da escápula e inicia o movimento de abdução do ombro."
+            },
+      {
+              id: 3,
+              region: "Ombro",
+              name: "Infra-espinhal",
+              aliases: ["infra-espinhal", "infraespinhal", "infra espinal", "infra-espinal", "infraespinal"],
+              origem: "Superfície posterior da escápula",
+              insercao: "Tubérculo maior do úmero",
+              acao: "Rotação lateral e adução do ombro",
+              explanation: "Fica <strong>abaixo</strong> (infra) da <strong>espinha</strong> da escápula na parte posterior, atuando na rotação lateral do ombro."
+            },
+      {
+              id: 4,
+              region: "Ombro",
+              name: "Redondo menor",
+              aliases: ["redondo menor"],
+              origem: "Escápula posterior, borda lateral",
+              insercao: "Tubérculo maior do úmero",
+              acao: "Rotação lateral e adução do ombro",
+              explanation: "É o músculo <strong>redondo</strong> mais <strong>curto/superior</strong> do manguito rotador, inserindo-se no tubérculo maior."
+            },
+      {
+              id: 5,
+              region: "Ombro",
+              name: "Redondo maior",
+              aliases: ["redondo maior"],
+              origem: "Face posterior do ângulo inferior da escápula",
+              insercao: "Lábio medial do sulco intertubercular do úmero",
+              acao: "Rotação medial e adução do ombro",
+              explanation: "É o músculo <strong>redondo</strong> mais <strong>baixo/longo</strong> que vai do ângulo inferior da escápula para a parte anterior do úmero."
+            },
+      {
+              id: 6,
+              region: "Ombro",
+              name: "Deltoide",
+              aliases: ["deltoide", "deltóide"],
+              origem: "Terço final da clavícula, acrômio e espinha da escápula",
+              insercao: "Tuberosidade deltoidea do úmero",
+              acao: "Abdução, extensão e flexão",
+              explanation: "Tem formato de <strong>delta</strong> (triângulo invertido) cobrindo o contorno do ombro."
+            },
+      {
+              id: 7,
+              region: "Braço",
+              name: "Bíceps braquial",
+              aliases: ["biceps braquial", "bíceps braquial", "biceps"],
+              origem: "Tubérculo supraglenoidal e processo coracoide",
+              insercao: "Tuberosidade do rádio",
+              acao: "Flexão e supinação do antebraço",
+              explanation: "<strong>Bi</strong> = possui <strong>duas</strong> cabeças de origem (curta no processo coracoide e longa no tubérculo supraglenoidal)."
+            },
+      {
+              id: 8,
+              region: "Braço",
+              name: "Braquial",
+              aliases: ["braquial"],
+              origem: "Face anterior da metade distal do úmero",
+              insercao: "Processo coronoide da ulna",
+              acao: "Flexão do antebraço",
+              explanation: "Músculo profundo puramente do <strong>braço</strong> que se insere na ulna, sendo o flexor puro do cotovelo."
+            },
+      {
+              id: 9,
+              region: "Braço",
+              name: "Coracobraquial",
+              aliases: ["coracobraquial", "coraco-braquial", "coraco braquial"],
+              origem: "Processo coracoide da escápula",
+              insercao: "Terço médio do úmero",
+              acao: "Flexão e adução do ombro",
+              explanation: "O próprio nome entrega a anatomia: liga o processo <strong>coracoide</strong> ao <strong>braço</strong> (úmero)."
+            },
+      {
+              id: 10,
+              region: "Braço",
+              name: "Tríceps braquial",
+              aliases: ["triceps braquial", "tríceps braquial", "triceps"],
+              origem: "Tubérculo infraglenoidal, face posterior do úmero e sulco radial",
+              insercao: "Olécrano",
+              acao: "Extensão do antebraço",
+              explanation: "<strong>Tri</strong> = possui <strong>três</strong> cabeças na parte posterior do braço que convergem para o olécrano da ulna."
+            },
+      {
+              id: 11,
+              region: "Antebraço",
+              name: "Braquiorradial",
+              aliases: ["braquiorradial", "braquioradial", "braquio-radial"],
+              origem: "Crista supraepicondilar lateral do úmero",
+              insercao: "Processo estiloide do rádio",
+              acao: "Pronação, supinação e flexão do antebraço",
+              explanation: "Liga o <strong>braço</strong> (úmero) até a ponta distal do osso <strong>rádio</strong>."
+            },
+      {
+              id: 12,
+              region: "Antebraço",
+              name: "Extensor radial longo do carpo",
+              aliases: ["extensor radial longo do carpo"],
+              origem: "Crista supraepicondilar lateral do úmero",
+              insercao: "Base do 2º metacarpal",
+              acao: "Extensão do punho e abdução da mão (desvio radial)",
+              explanation: "É <strong>longo</strong> e vai para o <strong>carpo/metacarpo</strong> (2º metacarpal) pelo lado do rádio."
+            },
+      {
+              id: 13,
+              region: "Antebraço",
+              name: "Extensor radial curto do carpo",
+              aliases: ["extensor radial curto do carpo"],
+              origem: "Epicôndilo lateral do úmero",
+              insercao: "Base do 3º metacarpal",
+              acao: "Extensão do punho",
+              explanation: "É o <strong>curto</strong> que acompanha o extensor radial longo, inserindo-se na base do 3º metacarpal."
+            },
+      {
+              id: 14,
+              region: "Antebraço",
+              name: "Extensor ulnar do carpo",
+              aliases: ["extensor ulnar do carpo"],
+              origem: "Epicôndilo lateral do úmero",
+              insercao: "Base do 5º metacarpal",
+              acao: "Extensão e adução do punho (desvio ulnar)",
+              explanation: "Fica do lado da <strong>ulna</strong> (medial) e se insere na base do 5º metacarpal (lado do dedo mínimo)."
+            },
+      {
+              id: 15,
+              region: "Antebraço",
+              name: "Extensor dos dedos",
+              aliases: ["extensor dos dedos", "extensor comum dos dedos"],
+              origem: "Epicôndilo lateral do úmero",
+              insercao: "Falanges média e distal do 2º ao 5º dedos",
+              acao: "Extensão do punho",
+              explanation: "Seus quatro tendões percorrem o dorso da mão para abrir (<strong>estender</strong>) os <strong>dedos</strong> do 2º ao 5º."
+            },
+      {
+              id: 31,
+              region: "Pescoço",
+              name: "Platisma",
+              aliases: ["platisma"],
+              origem: "Base da mandíbula",
+              insercao: "Pele por baixo da clavícula e fáscia peitoral",
+              acao: "Traciona o lábio inferior e o ângulo bucal",
+              explanation: "Músculo largo e muito fino que lembra uma <strong>lâmina ou placa</strong> superficial cobrindo o pescoço."
+            },
+      {
+              id: 32,
+              region: "Pescoço",
+              name: "Esternocleidomastoideo",
+              aliases: ["esternocleidomastoideo", "esternocleidomastoide", "esternocleidomastóideo"],
+              origem: "Clavícula e manúbrio",
+              insercao: "Processo mastoide",
+              acao: "Flexão da cabeça",
+              explanation: "O nome revela suas inserções: <strong>Esterno</strong> + <strong>Cleido</strong> (clavícula) + processo <strong>Mastoide</strong> do crânio."
+            },
+      {
+              id: 33,
+              region: "Pescoço",
+              name: "Escaleno anterior",
+              aliases: ["escaleno anterior"],
+              origem: "Vértebras",
+              insercao: "Costelas",
+              acao: "Inclinação do pescoço e auxilia na inspiração",
+              explanation: "Os escalenos lembram uma <strong>escala</strong> (degraus) na lateral do pescoço; este é o feixe mais à frente (<strong>anterior</strong>)."
+            },
+      {
+              id: 34,
+              region: "Pescoço",
+              name: "Escaleno médio",
+              aliases: ["escaleno medio", "escaleno médio"],
+              origem: "Vértebras",
+              insercao: "Costelas",
+              acao: "Inclinação do pescoço e auxilia na inspiração",
+              explanation: "É o feixe intermediário (do <strong>meio</strong>) dos três músculos em forma de <strong>escala</strong> no pescoço."
+            },
+      {
+              id: 35,
+              region: "Pescoço",
+              name: "Escaleno posterior",
+              aliases: ["escaleno posterior"],
+              origem: "Vértebras",
+              insercao: "Costelas",
+              acao: "Inclinação do pescoço e auxilia na inspiração",
+              explanation: "É o feixe situado mais atrás (<strong>posterior</strong>) do grupo dos <strong>escalenos</strong>."
+            },
+      {
+              id: 36,
+              region: "Dorso",
+              name: "Trapézio",
+              aliases: ["trapezio", "trapézio"],
+              origem: "Linha nucal superior, ligamento nucal e processos espinhosos da C7 à T12",
+              insercao: "Borda posterior da clavícula, acrômio e espinha da escápula",
+              acao: "Elevação e depressão do ombro e adução e rotação superior das escápulas",
+              explanation: "Primeiro músculo superficial do dorso; tem o formato geométrico de um <strong>trapézio</strong>."
+            },
+      {
+              id: 37,
+              region: "Dorso",
+              name: "Latíssimo do dorso",
+              aliases: ["latissimo do dorso", "latíssimo do dorso", "grande dorsal"],
+              origem: "Processos espinhosos das vértebras torácicas e lombares",
+              insercao: "Face proximal e distal do úmero",
+              acao: "Adução, extensão e rotação medial do braço e depressão do ombro",
+              explanation: "É o músculo mais <strong>largo (latíssimo)</strong> das costas, formando a famosa 'asa' dorsal."
+            },
+      {
+              id: 38,
+              region: "Dorso",
+              name: "Romboides",
+              aliases: ["romboides", "romboide", "rombóides", "rombóide", "romboide maior", "romboide menor"],
+              origem: "Processos espinhosos da C7 à T5",
+              insercao: "Borda medial da escápula",
+              acao: "Adução e rotação inferior das escápulas e elevação do ombro",
+              explanation: "Têm formato geométrico que lembra um losango ou <strong>rombo</strong> entre a coluna e a escápula."
+            },
+      {
+              id: 39,
+              region: "Dorso",
+              name: "Levantador da escápula",
+              aliases: ["levantador da escapula", "levantador da escápula", "elevador da escapula", "elevador da escápula"],
+              origem: "Processo transverso do atlas até à C4",
+              insercao: "Ângulo superior da escápula",
+              acao: "Elevação e adução da escápula",
+              explanation: "O próprio nome descreve sua função direta: puxa para cima (<strong>levanta</strong>) o ângulo superior da <strong>escápula</strong>."
+            },
+      {
+              id: 40,
+              region: "Tórax",
+              name: "Peitoral maior",
+              aliases: ["peitoral maior"],
+              origem: "Borda anterior da clavícula e face anterior do esterno até a 7ª costela",
+              insercao: "Crista do tubérculo maior do úmero",
+              acao: "Adução, rotação medial e flexão do ombro",
+              explanation: "É o <strong>maior</strong> e mais superficial músculo da região anterior do <strong>peito</strong>."
+            },
+      {
+              id: 41,
+              region: "Tórax",
+              name: "Peitoral menor",
+              aliases: ["peitoral menor"],
+              origem: "Face externa da 3ª, 4ª e 5ª costelas",
+              insercao: "Processo coracoide da escápula",
+              acao: "Depressão do ombro, rotação inferior da escápula e elevação das costelas",
+              explanation: "Fica situado profundamente logo abaixo do peitoral maior, sendo o <strong>menor</strong> dos dois."
+            },
+      {
+              id: 42,
+              region: "Tórax",
+              name: "Serrátil anterior",
+              aliases: ["serratil anterior", "serrátil anterior"],
+              origem: "Superfícies externas das 8-9 primeiras costelas",
+              insercao: "Face costal da margem medial da escápula",
+              acao: "Ação inspiratória, rotação, abdução e depressão da escápula",
+              explanation: "Possui digitações nas costelas com bordas recortadas que lembram os dentes de uma <strong>serra</strong>."
+            },
+      {
+              id: 43,
+              region: "Tórax",
+              name: "Subclávio",
+              aliases: ["subclavio", "subclávio"],
+              origem: "1ª costela e cartilagem costal",
+              insercao: "Face inferior da clavícula",
+              acao: "Depressão da clavícula e do ombro",
+              explanation: "Pequeno músculo situado logo <strong>abaixo</strong> (sub) da <strong>clavícula</strong>."
+            },
+      {
+              id: 44,
+              region: "Abdome",
+              name: "Reto do abdome",
+              aliases: ["reto do abdome", "reto do abdomen", "reto do abdômen", "reto abdominal"],
+              origem: "Processo xifoide, 5ª a 6ª cartilagens costais",
+              insercao: "Púbis e sínfise púbica",
+              acao: "Flexão do tronco",
+              explanation: "Fibras orientadas em linha <strong>reta</strong> vertical na parte anterior do <strong>abdome</strong>."
+            },
+      {
+              id: 45,
+              region: "Abdome",
+              name: "Oblíquo externo do abdome",
+              aliases: ["obliquo externo do abdome", "oblíquo externo do abdome", "obliquo externo", "oblíquo externo"],
+              origem: "Face externa das últimas 7 costelas",
+              insercao: "1/2 anterior da crista ilíaca, EIAS, tubérculo e púbis e linha alba",
+              acao: "Flexão e rotação do tronco",
+              explanation: "Fibras dispostas na diagonal (<strong>oblíquas</strong>) na camada mais superficial (<strong>externa</strong>) do abdome."
+            },
+      {
+              id: 46,
+              region: "Abdome",
+              name: "Oblíquo interno do abdome",
+              aliases: ["obliquo interno do abdome", "oblíquo interno do abdome", "obliquo interno", "oblíquo interno"],
+              origem: "Aponeurose toracolombar",
+              insercao: "Crista ilíaca, EIAS e ligamento inguinal",
+              acao: "Flexão e rotação do tronco",
+              explanation: "Fibras <strong>oblíquas</strong> situadas logo abaixo do oblíquo externo, em camada mais <strong>interna</strong>."
+            },
+      {
+              id: 47,
+              region: "Abdome",
+              name: "Transverso do abdome",
+              aliases: ["transverso do abdome", "transverso do abdomen", "transverso do abdômen", "transverso abdominal"],
+              origem: "Cartilagens costais, aponeurose toracolombar, crista ilíaca e ligamento inguinal",
+              insercao: "Púbis e linha alba",
+              acao: "Aumento da pressão intra-abdominal e estabilização da coluna lombar",
+              explanation: "Músculo mais profundo do abdome, com fibras horizontais (<strong>transversais</strong>) que funcionam como uma cinta."
+            },
+      {
+              id: 48,
+              region: "Abdome",
+              name: "Quadrado lombar",
+              aliases: ["quadrado lombar"],
+              origem: "Crista ilíaca",
+              insercao: "12ª costela e processo transverso de 1ª a 4ª vértebra lombar",
+              acao: "Inclinação homolateral do tronco e depressão da 12ª costela",
+              explanation: "Tem formato retangular/<strong>quadrado</strong> na parede posterior da região <strong>lombar</strong>."
+            },
+      {
+              id: 71,
+              region: "Abdome",
+              name: "Ilíaco",
+              aliases: ["iliaco", "ilíaco"],
+              origem: "2/3 superiores da fossa ilíaca, crista ilíaca e sacro",
+              insercao: "Trocanter menor do fêmur",
+              acao: "Flexão de quadril, anteroversão da pelve e coluna lombar",
+              explanation: "Preenche a fossa <strong>ilíaca</strong> do quadril e se une ao psoas maior para formar o iliopsoas."
+            },
+      {
+              id: 72,
+              region: "Abdome",
+              name: "Psoas maior",
+              aliases: ["psoas maior", "psoas"],
+              origem: "Processo transverso das vértebras lombares e discos intervertebrais",
+              insercao: "Trocanter menor do fêmur",
+              acao: "Flexão da coxa e da coluna lombar e inclinação homolateral",
+              explanation: "Desce da coluna lombar até o trocanter menor do fêmur, juntando-se ao ilíaco para formar o iliopsoas."
+            },
+      {
+              id: 49,
+              region: "Quadril",
+              name: "Glúteo máximo",
+              aliases: ["gluteo maximo", "glúteo máximo"],
+              origem: "Ílio, sacro e cóccix",
+              insercao: "Trato iliotibial e tuberosidade glútea do fêmur",
+              acao: "Extensão e rotação lateral do quadril",
+              explanation: "É o <strong>maior</strong> (máximo) e mais superficial dos músculos da região glútea."
+            },
+      {
+              id: 50,
+              region: "Quadril",
+              name: "Glúteo médio",
+              aliases: ["gluteo medio", "glúteo médio"],
+              origem: "Face lateral do osso ilíaco",
+              insercao: "Trocanter maior do fêmur",
+              acao: "Abdução e rotação medial do quadril",
+              explanation: "É o glúteo de tamanho intermediário (do <strong>meio</strong>), principal abdutor do quadril."
+            },
+      {
+              id: 51,
+              region: "Quadril",
+              name: "Glúteo mínimo",
+              aliases: ["gluteo minimo", "glúteo mínimo"],
+              origem: "Face lateral do osso ilíaco",
+              insercao: "Trocanter maior do fêmur",
+              acao: "Abdução e rotação medial de quadril",
+              explanation: "É o <strong>menor</strong> (mínimo) e mais profundo dos três músculos glúteos."
+            },
+      {
+              id: 52,
+              region: "Quadril",
+              name: "Piriforme",
+              aliases: ["piriforme"],
+              origem: "Face pélvica do sacro",
+              insercao: "Trocanter maior do fêmur",
+              acao: "Abdução e rotação lateral do quadril",
+              explanation: "Seu nome significa 'em formato de <strong>pera</strong>'; sai da face anterior do sacro rumo ao trocanter maior."
+            },
+      {
+              id: 58,
+              region: "Coxa",
+              name: "Tensor da fáscia lata",
+              aliases: ["tensor da fascia lata", "tensor da fáscia lata"],
+              origem: "Crista ilíaca e espinha ilíaca anterossuperior",
+              insercao: "Trato iliotibial",
+              acao: "Flexão, abdução e rotação medial do quadril e rotação lateral do joelho",
+              explanation: "Atua tracionando (<strong>tensionando</strong>) a <strong>fáscia lata</strong> através do trato iliotibial na lateral da coxa."
+            },
+      {
+              id: 59,
+              region: "Coxa",
+              name: "Sartório",
+              aliases: ["sartorio", "sartório"],
+              origem: "Espinha ilíaca anterossuperior",
+              insercao: "Tuberosidade da tíbia (pata de ganso)",
+              acao: "Abdução, flexão e rotação lateral da coxa e flexão e rotação medial do joelho",
+              explanation: "Conhecido como o músculo do <strong>alfaiate</strong> (posição de cruzar as pernas); é o músculo mais longo do corpo."
+            },
+      {
+              id: 60,
+              region: "Coxa",
+              name: "Reto femoral",
+              aliases: ["reto femoral", "reto da coxa"],
+              origem: "Espinha ilíaca anteroinferior",
+              insercao: "Patela e tuberosidade da tíbia",
+              acao: "Flexão do quadril e extensão do joelho",
+              explanation: "Desce em linha <strong>reta</strong> bem no centro anterior da coxa (<strong>fêmur</strong>), sendo a única cabeça biarticular do quadríceps."
+            },
+      {
+              id: 61,
+              region: "Coxa",
+              name: "Vasto medial",
+              aliases: ["vasto medial"],
+              origem: "Linha áspera e linha intertrocantérica",
+              insercao: "Patela e tuberosidade da tíbia",
+              acao: "Extensão do joelho",
+              explanation: "Massa muscular grande (<strong>vasta</strong>) localizada na parte interna (<strong>medial</strong>) do quadríceps."
+            },
+      {
+              id: 62,
+              region: "Coxa",
+              name: "Vasto lateral",
+              aliases: ["vasto lateral"],
+              origem: "Trocanter maior, linha áspera e linha intertrocantérica",
+              insercao: "Patela e tuberosidade da tíbia",
+              acao: "Extensão do joelho",
+              explanation: "Maior porção (<strong>vasta</strong>) do quadríceps, localizada na face externa (<strong>lateral</strong>) da coxa."
+            },
+      {
+              id: 63,
+              region: "Coxa",
+              name: "Vasto intermédio",
+              aliases: ["vasto intermedio", "vasto intermédio"],
+              origem: "Face anterior e lateral do fêmur",
+              insercao: "Patela e tuberosidade da tíbia",
+              acao: "Extensão do joelho",
+              explanation: "Fica situado no <strong>meio</strong> (<strong>intermédio</strong>) entre o vasto medial e o lateral, logo abaixo do reto femoral."
+            },
+      {
+              id: 64,
+              region: "Coxa",
+              name: "Bíceps femoral",
+              aliases: ["biceps femoral", "bíceps femoral"],
+              origem: "Tuberosidade isquiática",
+              insercao: "Côndilo lateral da tíbia e cabeça da fíbula",
+              acao: "Extensão do quadril, flexão e rotação lateral do joelho",
+              explanation: "Localizado na parte posterior/lateral da coxa (<strong>fêmur</strong>) e possui <strong>duas</strong> cabeças (<strong>bíceps</strong>)."
+            },
+      {
+              id: 65,
+              region: "Coxa",
+              name: "Semitendinoso",
+              aliases: ["semitendinoso", "semitendineo", "semitendíneo"],
+              origem: "Tuberosidade isquiática",
+              insercao: "Superfície medial da tuberosidade da tíbia (pata de ganso)",
+              acao: "Extensão do quadril, flexão e rotação medial do joelho",
+              explanation: "Metade do seu comprimento na parte posterior da coxa é formada por um longo cordão (<strong>semitendão</strong>)."
+            },
+      {
+              id: 66,
+              region: "Coxa",
+              name: "Semimembranoso",
+              aliases: ["semimembranoso", "semimembranaceo", "semimembranáceo"],
+              origem: "Tuberosidade isquiática",
+              insercao: "Côndilo medial da tíbia",
+              acao: "Extensão do quadril, flexão e rotação medial do joelho",
+              explanation: "Possui uma porção superior achatada e larga que lembra uma <strong>membrana</strong> na parte posterior da coxa."
+            },
+      {
+              id: 67,
+              region: "Perna",
+              name: "Tibial anterior",
+              aliases: ["tibial anterior"],
+              origem: "Côndilo lateral e metade proximal da face lateral da tíbia",
+              insercao: "Cuneiforme medial e base do 1º metatarsal",
+              acao: "Dorsiflexão e inversão do pé",
+              explanation: "Primeiro músculo da perna; fica colado à <strong>tíbia</strong> na parte da <strong>frente</strong> (<strong>anterior</strong>)."
+            },
+      {
+              id: 68,
+              region: "Perna",
+              name: "Extensor longo dos dedos",
+              aliases: ["extensor longo dos dedos", "extensor longo dos dedos do pe", "extensor longo dos dedos do pé"],
+              origem: "Côndilo lateral da tíbia, fíbula e membrana interóssea",
+              insercao: "Falanges média e distal do 2º ao 5º dedos",
+              acao: "Dorsiflexão, eversão do pé e extensão dos dedos",
+              explanation: "Segundo músculo anterior da perna; seus tendões <strong>longos</strong> levantam (<strong>estendem</strong>) os <strong>dedos</strong> do pé."
+            }
+      ,{
+              id: 73,
+              region: "Coxa",
+              name: "Grácil",
+              aliases: ["gracil", "grácil", "musculo gracil", "músculo grácil"],
+              origem: "Corpo e ramo inferior do púbis",
+              insercao: "Superfície medial da parte superior da tíbia, na pata de ganso",
+              acao: "Adução da coxa, flexão do joelho e rotação medial da perna",
+              explanation: "É um músculo longo e fino na face <strong>medial da coxa</strong>. Lembre-se: ajuda a aproximar as pernas (adução) e participa da pata de ganso."
+            },
+      {
+              id: 74,
+              region: "Coxa",
+              name: "Pectíneo",
+              aliases: ["pectineo", "pectíneo", "musculo pectineo", "músculo pectíneo"],
+              origem: "Ramo superior do púbis (pecten do púbis)",
+              insercao: "Linha pectínea do fêmur",
+              acao: "Flexão e adução da coxa; auxilia na rotação medial do quadril",
+              explanation: "Fica na região <strong>superior e medial da coxa</strong>, próximo à virilha. O nome lembra sua inserção na <strong>linha pectínea</strong> do fêmur."
+            },
+      {
+              id: 75,
+              region: "Perna",
+              name: "Gastrocnêmio medial / lateral",
+              aliases: ["gastrocnemio", "gastrocnêmio", "gastrocnêmio medial", "gastrocnêmio lateral", "gastrocnemio medial", "gastrocnemio lateral", "gêmeos da perna"],
+              origem: "Cabeça medial: face posterior do côndilo medial do fêmur. Cabeça lateral: face posterior do côndilo lateral do fêmur",
+              insercao: "Face posterior do calcâneo, por meio do tendão calcâneo (tendão de Aquiles)",
+              acao: "Flexão plantar do tornozelo e flexão do joelho",
+              explanation: "É o músculo superficial e volumoso da <strong>panturrilha</strong>, formado por duas cabeças (medial e lateral). Cruza o joelho e o tornozelo: ajuda a dobrar o joelho e a ficar na ponta dos pés."
+            },
+      {
+              id: 76,
+              region: "Perna",
+              name: "Sóleo",
+              aliases: ["soleo", "sóleo", "musculo soleo", "músculo sóleo"],
+              origem: "Face posterior da cabeça e parte proximal da fíbula, linha do sóleo e face posterior da tíbia",
+              insercao: "Face posterior do calcâneo, por meio do tendão calcâneo (tendão de Aquiles)",
+              acao: "Flexão plantar do tornozelo",
+              explanation: "Fica <strong>profundo ao gastrocnêmio</strong> na panturrilha. Atua principalmente na flexão plantar, ajudando a manter a postura em pé e a elevar o calcanhar."
+            }
     ];
 
 const REGIONS = ["Ombro","Braço","Antebraço","Pescoço","Dorso","Tórax","Abdome","Quadril","Coxa","Perna"];
